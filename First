@@ -1,0 +1,7 @@
+from neo4j import GraphDatabase
+gdb=GraphDatabase.driver(uri="bolt://localhost:7687",auth=("neo4j","ravi2000"))
+session=gdb.session()
+q1="MATCH (x) return (x) LIMIT 1"
+nodes=session.run(q1)
+for node in nodes:
+    print(node)
